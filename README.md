@@ -32,7 +32,7 @@ git clone https://github.com/yourusername/EncoreTIX.git
 ```json
 "Ticketmaster": {
   "ApiKey": "YOUR_API_KEY_HERE"
-}```json
+}`\`\`\``
 
 4. Build and run the application:
 
