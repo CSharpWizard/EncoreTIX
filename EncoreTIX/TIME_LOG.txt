@@ -1,0 +1,35 @@
+Project Time Log
+Planning and Setup (2 hours)
+
+Reading and understanding requirements: 30 minutes
+Setting up the project structure: 30 minutes
+Planning the architecture: 30 minutes
+Setting up GitHub repository: 30 minutes
+
+Model Development (1.5 hours)
+
+Creating data models to match Ticketmaster API: 1 hour
+Creating view models: 30 minutes
+
+API Integration (2 hours)
+
+Implementing the Ticketmaster service: 1 hour
+Testing API connections: 30 minutes
+Debugging and refining: 30 minutes
+
+UI Development (4 hours)
+
+Implementing the search page: 1.5 hours
+Implementing the details page: 1.5 hours
+Styling to match the design: 1 hour
+
+Testing and Refinement (2 hours)
+
+Testing all functionality: 1 hour
+Fixing bugs and issues: 1 hour
+
+Documentation (0.5 hours)
+
+Creating README.md: 30 minutes
+
+Total Time: 12 hours

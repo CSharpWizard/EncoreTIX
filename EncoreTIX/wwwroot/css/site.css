@@ -1,0 +1,45 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #EDF5F9;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 60px;
+}
+
+header {
+    background-color: #1B2F41 !important;
+}
+
+.btn-primary {
+    background-color: #186CA8;
+    border-color: #186CA8;
+}
+
+    .btn-primary:hover {
+        background-color: #005999;
+        border-color: #005999;
+    }
+
+.list-group-item.active {
+    background-color: #E6F3FF;
+    border-color: #0072C6;
+    color: #333;
+}
+
+.list-group-item {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+    }

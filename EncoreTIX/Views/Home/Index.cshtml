@@ -1,0 +1,76 @@
+﻿@model EncoreTIX.ViewModels.AttractionViewModel
+@{
+    ViewData["Title"] = "Search Attractions";
+}
+
+<div class="row justify-content-center mb-4">
+    <div class="col-md-8">
+        <form method="post" asp-action="Search" class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" style="border-radius: 10px;margin-right: 15px; border: 1px solid #5DBDF0;" asp-for="SearchTerm" placeholder="Search for Attractions">
+                <button class="btn btn-primary" style="border-radius: 10px; border: 0;" type="submit">Submit</button>
+            </div>
+        </form>
+
+        @if (Model.Attractions.Count == 0)
+        {
+            <div class="text-center my-5">
+                <div class="display-1 text-muted">😕</div>
+                <h3 class="text-muted">No Results Found</h3>
+            </div>
+        }
+        else
+        {
+            <form method="get" asp-action="Details">
+                <div class="list-group mb-4">
+                    @foreach (var attraction in Model.Attractions)
+                    {
+                        <div class="list-group-item mb-4 list-group-item-action d-flex align-items-center @(Model.SelectedAttractionId == attraction.Id ? "active" : "")"
+                             onclick="selectAttraction('@attraction.Id')" style="padding:0 !important; border: unset !important;">
+                            <div style="width: 105px; height: 59px; margin-right: 15px;">
+                                <img src="@attraction.ImageUrl" alt="@attraction.Name" 
+                                     class="img-fluid" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div>
+                                <h5 class="mb-0">@attraction.Name</h5>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <input type="hidden" id="selectedAttractionId" name="id" value="@Model.SelectedAttractionId" />
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-5" id="selectButton" disabled>Select</button>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function selectAttraction(id) {
+            // Clear previous selection
+            document.querySelectorAll('.list-group-item.active').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Set new selection
+            const selectedElement = document.querySelector(`.list-group-item[onclick="selectAttraction('${id}')"]`);
+            const selectButton = document.getElementById('selectButton');
+            const selectedIdInput = document.getElementById('selectedAttractionId');
+            
+            if (selectedIdInput.value === id) {
+                // If clicking the same item, deselect it
+                selectedIdInput.value = '';
+                selectButton.disabled = true;
+            } else {
+                // Select the new item
+                selectedElement.classList.add('active');
+                selectedIdInput.value = id;
+                selectButton.disabled = false;
+            }
+        }
+    </script>
+}
